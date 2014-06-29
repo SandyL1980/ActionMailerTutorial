@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: 'Account created.'
+      Welcome.welcome_email(@user).deliver
+      redirect_to root_path, notice: 'Account created.  Email sent.'
     else
       redirect_to root_path, notice: 'Something bad happened, try again.'
     end
