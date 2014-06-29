@@ -1,2 +1,24 @@
-<h1>Users#welcome</h1>
-<p>Find me in app/views/users/welcome.html.erb</p>
+<h1>Welcome to my mailer, signup below:</h1>
+<hr>
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :name %>:  <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>: <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<br>
+<hr>
+<br>
+
+All users list:
+<% @users.each do |user| %>
+  <div>
+    <strong><%= user.name %> | <%= user.email %></strong>
+  </div>
+<% end %>
