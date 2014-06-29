@@ -5,6 +5,5 @@ class WelcomeMailer < ActionMailer::Base
     @user = user
     @url  = 'http://test.com/login'
     mail(to: @user.email, subject: 'My awesome email')
-    # pry
   end
 end
