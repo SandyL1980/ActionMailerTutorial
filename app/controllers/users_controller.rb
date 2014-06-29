@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, notice: 'Account created.'
     else
-      flash.now[:alert] = 'Something bad happened, try again.'
-      render 'welcome'
+      redirect_to root_path, notice: 'Something bad happened, try again.'
     end
   end
 
